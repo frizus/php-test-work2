@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CourierController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::middleware('auth:sanctum')->group(function() {
+    Route::apiResource('couriers', CourierController::class)->except(['destroy']);
+    Route::post('orders/assign', [OrderController::class, 'assign'])->name('orders.assign');
+    Route::post('orders/complete', [OrderController::class, 'complete'])->name('orders.complete');
+    Route::apiResource('orders', OrderController::class)->except(['show', 'update', 'destroy']);
+//});
