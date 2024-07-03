@@ -13,7 +13,8 @@ db-seed:
 	php artisan db:seed
 
 reset-db:
-	php artisan migrate:refresh
+	php artisan db:wipe
+	php artisan migrate
 
 test:
 	php artisan test

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CourierGetResponse;
+use App\Models\Courier;
 use Illuminate\Http\Request;
 
 class CourierController extends Controller
@@ -11,7 +13,7 @@ class CourierController extends Controller
      */
     public function index()
     {
-        //
+        return Courier::with('regions')->get();
     }
 
     /**
@@ -27,7 +29,7 @@ class CourierController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return new CourierGetResponse(Courier::findOrFail($id));
     }
 
     /**

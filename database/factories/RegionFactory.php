@@ -16,8 +16,9 @@ class RegionFactory extends Factory
      */
     public function definition(): array
     {
+        // TODO проверить, чтобы unique() действует только внутри этого фактори
         return [
-            //
+            'name' => fake()->unique()->randomElement(['Арбат', 'Басманный', 'Хамовники', 'Красносельский', 'Мещанский', 'Пресненский', 'Таганский', 'Тверской', 'Якиманка', 'Замоскворечье'])
         ];
     }
 }
