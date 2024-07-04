@@ -10,10 +10,11 @@ class CourierController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * TODO Накостылено, чтобы смотреть список
      */
     public function index()
     {
-        return Courier::with('regions')->get();
+        return CourierGetResponse::collection(Courier::with('regions')->get());
     }
 
     /**

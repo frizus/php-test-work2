@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrderGetResponse;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -9,10 +10,11 @@ class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * TODO Накостылено, чтобы смотреть список
      */
     public function index()
     {
-        return Order::all();
+        return OrderGetResponse::collection(Order::all());
     }
 
     /**

@@ -20,8 +20,8 @@ class OrderFactory extends Factory
         return [
             'status' => $status = fake()->randomElement(['created', 'completed']),
             'weight' => fake()->randomFloat(2, 0.5, 20),
-            'delivery_hours_start' => $start = Carbon::createFromTime(rand(0, 23), rand(0, 3) === 0 ? 30 : 0)->toTimeString(),
-            'delivery_hours_end' => Carbon::createFromTimeString($start)->addHours(rand(1, 2))->addMinutes(rand(0, 3) === 0 ? 30 : 0)->toTimeString(),
+            'delivery_hours_start' => $start = Carbon::createFromTime(rand(0, 23), rand(0, 3) === 0 ? 30 : 0)->toTimeString('minute'),
+            'delivery_hours_end' => Carbon::createFromTimeString($start)->addHours(rand(1, 2))->addMinutes(rand(0, 3) === 0 ? 30 : 0)->toTimeString('minute'),
             'complete_time' => $status === 'completed' ? fake()->dateTimeBetween('-1 week') : null,
         ];
     }

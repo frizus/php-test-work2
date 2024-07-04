@@ -27,7 +27,7 @@ class CourierUpdateRequest extends FormRequest
             'regions' => 'nullable|array|min:1',
             'regions.*' => 'exists:' . Region::class . ',id',
             'working_hours' => 'nullable|array|size:2',
-            'working_hours.*' => 'required_with:working_hours,date_format:H:i:s',
+            'working_hours.*' => 'required_with:working_hours,date_format:H:i',
             'working_hours.1' => 'required_with:working_hours,after:working_hours.0',
         ];
     }

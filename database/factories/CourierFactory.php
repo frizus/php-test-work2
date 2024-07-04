@@ -19,8 +19,8 @@ class CourierFactory extends Factory
     {
         return [
             'courier_type' => fake()->randomElement(['foot', 'bike', 'car']),
-            'working_hours_start' => $start = Carbon::createFromTime(rand(6, 14), rand(0, 3) === 0 ? 30 : 0)->toTimeString(),
-            'working_hours_end' => Carbon::createFromTimeString($start)->addHours(rand(4, 8))->addMinutes(rand(0, 3) === 0 ? 30 : 0)->toTimeString(),
+            'working_hours_start' => $start = Carbon::createFromTime(rand(6, 14), rand(0, 3) === 0 ? 30 : 0)->toTimeString('minute'),
+            'working_hours_end' => Carbon::createFromTimeString($start)->addHours(rand(4, 8))->addMinutes(rand(0, 3) === 0 ? 30 : 0)->toTimeString('minute'),
         ];
     }
 }
